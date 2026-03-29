@@ -1,11 +1,11 @@
 pipeline {
   agent {
-    docker { image 'centos/httpd' }
+    docker { image 'ubuntu/nginx:1.24-24.04_beta' }
   }
   stages {
     stage('Test') {
       steps {
-        sh 'httpd --version'
+        sh 'docker run --rm ubuntu/nginx:1.24-24.04_beta nginx -v'
       }
     }
   }
