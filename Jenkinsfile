@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'docker run --rm ubuntu/nginx:1.24-24.04_beta nginx -v'
+        sh 'nginx -v'
       }
     }
   }
