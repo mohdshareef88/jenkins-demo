@@ -1,27 +1,30 @@
 pipeline {
-  agent {
-    docker { image 'ubuntu/nginx:1.24-24.04_beta' }
-  }
+  agent none   // no global agent
+
   stages {
-    stage('Test') {
+
+    stage('Nginx Version') {
+      agent {
+        docker { image 'ubuntu/nginx:1.24-24.04_beta' }
+      }
       steps {
         sh 'nginx -v'
       }
     }
-    agent {
-    docker { image 'node:16-alpine' }
-  }
-  stages {
-    stage('Test') {
+
+    stage('Node Version') {
+      agent {
+        docker { image 'node:16-alpine' }
+      }
       steps {
         sh 'node --version'
       }
     }
-    agent {
-    docker { image 'httpd:2.4' }
-  }
-  stages {
-    stage('Test') {
+
+    stage('Apache Version') {
+      agent {
+        docker { image 'httpd:2.4' }
+      }
       steps {
         sh 'httpd -version'
       }
