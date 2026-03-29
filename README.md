@@ -1,1 +1,1 @@
-# Sample pipeline to check the builds working with printing images version
+# Sample pipeline to check the docker builds working with printing images version
