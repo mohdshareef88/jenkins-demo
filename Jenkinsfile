@@ -1,11 +1,11 @@
 pipeline {
   agent {
-    docker { image 'node:17-alpine' }
+    docker { image 'centos/httpd' }
   }
   stages {
     stage('Test') {
       steps {
-        sh 'node --version'
+        sh 'httpd --version'
       }
     }
   }
